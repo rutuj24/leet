@@ -1,0 +1,29 @@
+https://leetcode.com/problems/is-subsequence/submissions/
+
+
+
+CODE:
+
+
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int countt=0, counts=0;
+        while(countt<t.size() && counts<s.size()){
+            if(t[countt] == s[counts]){
+                countt++;
+                counts++;
+            }
+            else{
+                countt++;
+            }
+        }
+        if(counts == s.size()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
