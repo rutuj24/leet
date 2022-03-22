@@ -1,0 +1,30 @@
+https://leetcode.com/problems/smallest-string-with-a-given-numeric-value/
+
+
+
+CODE:
+
+
+
+class Solution {
+public:
+    string getSmallestString(int n, int k) {
+        string solution;
+        int i=n;
+        while(k>26+i-1){
+            k = k-26;
+            i--;
+        }
+        i--;
+        for(int j=0; j<i; j++){
+            solution.push_back('a');
+            k--;
+        }
+        cout<<k;
+        solution.push_back(k+96);
+        for(int j=i+1; j<n; j++){
+            solution.push_back('z');
+        }
+        return solution;
+    }
+};
