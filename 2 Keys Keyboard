@@ -1,0 +1,22 @@
+https://leetcode.com/problems/2-keys-keyboard/submissions/
+
+
+CODE:
+
+
+
+class Solution {
+public:
+    int minSteps(int n) {
+        int total=1, copy=1, steps=0;
+        while(total<n){
+            total = total+copy;
+            steps++;
+            if((n-total)%total==0){
+                copy=total;
+                steps++;
+            }
+        }
+        return steps;
+    }
+};
