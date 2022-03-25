@@ -1,0 +1,34 @@
+https://leetcode.com/problems/two-city-scheduling/submissions/
+
+
+
+CODE:
+
+
+
+class Solution {
+public:
+    bool sp_sort(vector<int> v1, vector<int> v2)
+    {
+        return (v1[0] < v2[0]);
+    }
+    
+    int twoCitySchedCost(vector<vector<int>>& costs) {
+        int soln=0;
+        for(int i=0; i<costs.size(); i++){
+            costs[i].push_back(costs[i][0]-costs[i][1]);
+            reverse(costs[i].begin(), costs[i].end());
+        }
+        sort(costs.begin(), costs.end());
+        
+        for(int i=0; i<costs.size(); i++){
+            if(i<costs.size()/2){
+                soln = soln+costs[i][2];
+            }
+            else{
+                soln = soln+costs[i][1];
+            }
+        }
+        return soln;
+    }
+};
